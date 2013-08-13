@@ -2,6 +2,7 @@
 #define __KXUTIL3_TEXT_HPP__
 #include <string>
 #include <vector>
+#include <map>
 #include <sstream>
 
 using namespace std;
@@ -16,6 +17,8 @@ void Segment(const string &source, const string &seperator, vector<string> &piec
 void SegmentGBK(const string &source, const string &seperator, vector<string> &pieces);
 
 void Segment2(const string &source, const string &seperator, vector<string> &pieces, bool s_flag=false);
+
+map<string,string> String2Map(const string &str, const string &sep1, const string &sep2);
 
 string Join(const string seperator, vector<string> &items);
 

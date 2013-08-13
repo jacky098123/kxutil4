@@ -46,6 +46,22 @@ size_t FindGBK(const string &source, const string &seperator, size_t start) {
     return string::npos;
 }
 
+map<string,string> String2Map(const string &str, const string &sep1, const string &sep2) {
+    vector<string> list;
+    Segment(str, sep1, list);
+
+    map<string,string> tmp;
+    for (size_t i=0; i<list.size(); i++) {
+        vector<string> item;
+        Segment(list[i], sep2, item);
+        if (item.size() != 2)
+            continue;
+
+        tmp.insert(map<string,string>::value_type(item[0], item[1]));
+    }
+    return tmp;
+}
+
 void Segment(const string &source, const string &seperator, vector<string> &pieces) {
     size_t pos;
     size_t start = 0;
